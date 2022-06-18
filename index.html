@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BITCOIN CLICKER!!!</title>
+</head>
+
+
+<style>
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<body>
+    <h1>bitcoin clicker</h1>
+    <h2>sponsored by r/wallstreetbets</h2>
+    <span>number of bitcoin: <span id="coins">0</span></span> <br> 
+
+    <img id="btc" src="bitcoin.png" width="256" height="256" style="animation: rotation 5s infinite linear;"> 
+    <div style="border: solid 1px black; width:903px; height:500px; overflow-y: scroll;">
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/1.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                generous friend<br>your friend will mine for you (1/per second)<br>amount: <span id="oneAmount">0</span><br><button id="purchaseOne">purchase (100 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/2.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                child labour<br>enslave a child (2/per second)<br>amount: <span id="twoAmount">0</span><br><button id="purchaseTwo">purchase (200 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/3.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin farm<br>employ the local farmer (4/per second)<br>amount: <span id="threeAmount">0</span><br><button id="purchaseThree">purchase (500 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/4.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin factory<br>you now have a factory of slaves (7/per second)<br>amount: <span id="fourAmount">0</span><br><button id="purchaseFour">purchase (1000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <!-- <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/2.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                radio<br>RADIO<br><br><br><br>
+            </span>
+        </div> -->
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/5.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                buy a mining company<br>sounds familiar... (10/per second)<br>amount: <span id="fiveAmount">0</span><br><button id="purchaseFive">purchase (1200 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/6.jpeg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bank<br>isnt bitcoin meant to be decentralized? whatever... (15/per second)<br>amount: <span id="sixAmount">0</span><br><button id="purchaseSix">purchase (2000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/7.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                employ bitcoin criminals<br>its not like anyone cares anyway (30/per second)<br>amount: <span id="sevenAmount">0</span><br><button id="purchaseSeven">purchase (3500 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/8.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin hotel<br>a hotel that only accepts bitcoin (40/per second)<br>amount: <span id="eightAmount">0</span><br><button id="purchaseEight">purchase (4500 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/9.jpeg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin island<br>el salvador? (50/per second)<br>amount: <span id="nineAmount">0</span><br><button id="purchaseNine">purchase (5500 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/10.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin continent<br>COMMUNISM AND DICTATORSHIP!! NORTH KOREA 2.0! (75/per second)<br>amount: <span id="tenAmount">0</span><br><button id="purchaseTen">purchase (8000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/11.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin planet<br>wtf? (100/per second)<br>amount: <span id="elevenAmount">0</span><br><button id="purchaseEleven">purchase (12000 btc)</button><br><br>
+            </span>
+        </div>
+        
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/12.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin galaxy<br>samsung might copyright strike you... (120/per second)<br>amount: <span id="twelveAmount">0</span><br><button id="purchaseTwelve">purchase (15000 btc)</button><br><br>
+            </span>
+        </div>
+        
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/13.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin blackhole<br>isn't that a bad thing?- (150/per second)<br>amount: <span id="thirteenAmount">0</span><br><button id="purchaseThirteen">purchase (17500 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/14.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin neutron star<br>all the bitcoin in the universe (200/per second)<br>amount: <span id="fourteenAmount">0</span><br><button id="purchaseFourteen">purchase (25000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/15.jpeg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin COSMOS<br>WTF??? (250/per second)<br>amount: <span id="fifteenAmount">0</span><br><button id="purchaseFifteen">purchase (30000 btc)</button><br><br>
+            </span>
+        </div>
+        
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/16.jpg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin angel<br>descended from bitcoin heaven (300/per second)<br>amount: <span id="sixteenAmount">0</span><br><button id="purchaseSixteen">purchase (35000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/17.png" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin GOD<br>ALL HAIL (400/per second)<br>amount: <span id="seventeenAmount">0</span><br><button id="purchaseSeventeen">purchase (45000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/18.jpeg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin multiverse<br>doctor strange would be proud (500/per second)<br>amount: <span id="eighteenAmount">0</span><br><button id="purchaseEighteen">purchase (60000 btc)</button><br><br>
+            </span>
+        </div>     
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/19.jpeg" style="display:inline-block;">
+            <span style="display:inline-block;">
+                bitcoin afterlife<br>bitcoin is love, bitcoin is life, bitcoin follows you everywhere (1000/per second)<br>amount: <span id="nineteenAmount">0</span><br><button id="purchaseNineteen">purchase (200000 btc)</button><br><br>
+            </span>
+        </div>
+
+        <div style="border: solid 1px black; width:900px; height:100px; ">
+            <img width="100px" height="100px" src="assets/20.gif" style="display:inline-block;">
+            <span style="display:inline-block;">
+                a very generous friend<br>hes been here from the start :) (10000/per second)<br>amount: <span id="twentyAmount">0</span><br><button id="purchaseTwenty">purchase (1500000 btc)</button><br><br>
+            </span>
+        </div>
+        
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
