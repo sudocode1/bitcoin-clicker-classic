@@ -1,5 +1,13 @@
 let coins = 0;
 let perSecond = 0;
+let perSecondPercentageIncrease = 0;
+
+
+let etherUnlocked = false;
+let ethereum = 0;
+let etherPerSecond = 0;
+let etherVSbtc = Math.round(Math.random() * 1000);
+document.getElementById('etherExchange').innerText = etherVSbtc + ' ETH';
 
 let events = [
     'CHILD_ESCAPE', 
@@ -38,6 +46,7 @@ function updateEventLog() {
 
 document.getElementById('btc').onclick = () => {
     document.getElementById('coins').innerText = coins + 1;
+    document.getElementById('coins').innerText = coins;
     coins++; 
 }
 
@@ -241,11 +250,148 @@ document.getElementById('purchaseTwenty').onclick = () => {
     document.getElementById('coins').innerText = coins;
 }
 
+document.getElementById('purchaseEthereum').onclick = () => {
+    if (etherUnlocked) return;
+    if (coins < 150000000) return;
+    coins = coins - 150000000;
+    etherUnlocked = true;
+    etherPurchasedLabel.innerText = "purchased";
+    document.getElementById('etherimg').style.display = "initial";
+    document.getElementById('numbers').innerHTML += `<span>number of ethereum: <span id="ethereumAmount">0</span></span> <br>`;
+    document.getElementById('numbers').innerHTML += `<span>ethereum per second: <span id="ethereumPerSecond">0</span></span>/second <br> `;
+    document.getElementById('etherimg').onclick = () => {
+        ethereum++;
+        document.getElementById('ethereumAmount').innerHTML = ethereum;
+    }
+
+    document.getElementById('excBTCtoETH').onclick = () => {
+        if (!isNaN(parseFloat(document.getElementById('btcethamount').value))) {
+            if (parseFloat(document.getElementById('btcethamount').value) <= coins) {
+                // exchange btc for ethereum
+                coins = coins - parseFloat(document.getElementById('btcethamount').value);
+                ethereum = ethereum + (parseFloat(document.getElementById('btcethamount').value) * etherVSbtc);
+            }
+        }
+        document.getElementById('coins').innerText = coins;
+        document.getElementById('ethereumAmount').innerText = ethereum;
+    }
+
+    document.getElementById('excETHtoBTC').onclick = () => {
+        if (!isNaN(parseFloat(document.getElementById('btcethamount').value))) {
+            if (parseFloat(document.getElementById('btcethamount').value) <= ethereum) {
+                // exchange ethereum for btc
+                ethereum = ethereum - parseFloat(document.getElementById('btcethamount').value);
+                coins = coins + (parseFloat(document.getElementById('btcethamount').value) / etherVSbtc);
+            }
+        }
+        document.getElementById('coins').innerText = coins;
+        document.getElementById('ethereumAmount').innerText = ethereum;
+    }
+}
+
+document.getElementById('purchaseBTCMiningCookie').onclick = () => {
+    if (ethereum < 500000000000) return;
+    let btcMiningCookiesAmount = parseInt(document.getElementById('btcMiningCookies').innerText);
+    if (btcMiningCookiesAmount == 100) return;
+
+    ethereum = ethereum - 500000000000;
+    document.getElementById('btcMiningCookies').innerText = btcMiningCookiesAmount + 1;
+    perSecondPercentageIncrease = perSecondPercentageIncrease + 1;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+document.getElementById('purchaseBTCMiningBakery').onclick = () => {
+    if (ethereum < 2500000000000) return;
+    let btcMiningBakeryAmount = parseInt(document.getElementById('btcMiningBakery').innerText);
+    if (btcMiningBakeryAmount == 100) return;
+
+    ethereum = ethereum - 2500000000000;
+    document.getElementById('btcMiningBakery').innerText = btcMiningBakeryAmount + 1;
+    perSecondPercentageIncrease = perSecondPercentageIncrease + 5;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+document.getElementById('purchaseBTCBakeryBusiness').onclick = () => {
+    if (ethereum < 5000000000000) return;
+    let btcBakeryBusinessAmount = parseInt(document.getElementById('btcBakeryBusiness').innerText);
+    if (btcBakeryBusinessAmount == 100) return;
+
+    ethereum = ethereum - 5000000000000;
+    document.getElementById('btcBakeryBusiness').innerText = btcBakeryBusinessAmount + 1;
+    perSecondPercentageIncrease = perSecondPercentageIncrease + 10;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+document.getElementById('purchaseBTCBakeryFrachise').onclick = () => {
+    if (ethereum < 12500000000000) return;
+    let btcBakeryFrachiseAmount = parseInt(document.getElementById('btcBakeryFrachise').innerText);
+    if (btcBakeryFrachiseAmount == 100) return;
+
+    ethereum = ethereum - 12500000000000;
+    document.getElementById('btcBakeryFrachise').innerText = btcBakeryFrachiseAmount + 1;
+    perSecondPercentageIncrease = perSecondPercentageIncrease + 25;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+document.getElementById('purchaseBTCGoldenCookie').onclick = () => {
+    if (ethereum < 25000000000000) return;
+    let btcGoldenCookieAmount = parseInt(document.getElementById('btcGoldenCookie').innerText);
+
+    if (btcGoldenCookieAmount == 100) return;
+    ethereum = ethereum - 25000000000000;
+    document.getElementById('btcGoldenCookie').innerText = btcGoldenCookieAmount + 1;
+    perSecondPercentageIncrease = perSecondPercentageIncrease + 50;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+document.getElementById('purchaseLaptop').onclick = () => {
+    if (ethereum < 100000000) return;
+    let laptopAmount = parseInt(document.getElementById('laptopAmount').innerText);
+
+    if (laptopAmount == 100) return;
+    ethereum = ethereum - 100000000;
+    document.getElementById('laptopAmount').innerText = laptopAmount + 1;
+    etherPerSecond = etherPerSecond + 100000;
+    document.getElementById('ethereumAmount').innerHTML = ethereum;
+}
+
+// document.getElementById('toggleBTCStore').onclick = () => {
+//     if (document.getElementById('BTCcontainer').style.visibility == "hidden") {
+//         document.getElementById('BTCcontainer').style.visibility = "initial";
+//     } else {
+//         document.getElementById('BTCcontainer').style.visibility = "hidden";
+//     }
+// }
+
+// document.getElementById('toggleETHStore').onclick = () => {
+//     if (document.getElementById('ETHcontainer').style.visibility == "hidden") {
+//         document.getElementById('ETHcontainer').style.visibility = "initial";
+//     } else {
+//         document.getElementById('ETHcontainer').style.visibility = "hidden";
+//     }
+// }
+
 setInterval(() => {
-    coins = coins + perSecond;
+    coins = coins + perSecond + (perSecond * (perSecondPercentageIncrease / 100));
     document.getElementById('coins').innerText = coins;
-    document.getElementById('coinsPerSecond').innerText = perSecond;
+    document.getElementById('coinsPerSecond').innerText = perSecond + '/second' + ' (+' + perSecondPercentageIncrease + '%, total: ' + (perSecond + (perSecond * (perSecondPercentageIncrease / 100))) + '/second)';
+
+    try {
+        ethereum = ethereum + etherPerSecond;
+
+        document.getElementById('ethereumAmount').innerText = ethereum;
+        document.getElementById('ethereumPerSecond').innerText = etherPerSecond;
+    } catch(e) {
+
+    } 
+
+
 }, 1000);
+
+setInterval(() => {
+    etherVSbtc = Math.round(Math.random() * 1000);
+    document.getElementById('etherExchange').innerText = etherVSbtc + ' ETH';
+}, 10000);
 
 setInterval(() => {
     let number_of_chance = Math.round(Math.random() * 100);
