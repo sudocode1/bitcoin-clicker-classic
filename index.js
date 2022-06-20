@@ -483,6 +483,7 @@ setInterval(() => {
             break;
 
             case 'COSMOS_DEATH':
+                if ( (Math.round(Math.random() * 1000)) !== 595 ) return;
                 coins = 0;
                 document.getElementById('coins').innerText = coins;
 
